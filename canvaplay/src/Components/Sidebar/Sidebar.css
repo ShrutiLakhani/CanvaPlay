@@ -1,0 +1,14 @@
+.sidebar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  margin: 2rem 2rem 0 2rem;
+}
+.sidebar-links {
+  display: flex;
+  align-items: center;
+}
+.sidebar-links-name {
+  margin-left: 0.8rem;
+  text-decoration: none;
+}
