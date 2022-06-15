@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 6rem;
   margin: 2rem 2rem 0 2rem;
+  flex: 0.2;
 }
 .sidebar-links {
   display: flex;
