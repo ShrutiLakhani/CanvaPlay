@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  margin-top: 2px;
+}
+.canva-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.canva-navbar .logo-container {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+.logo-name {
+  margin-left: 4rem;
+}
+.canva-logo-img {
+  background-image: url("../assets/Images/CLogo.svg");
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+  height: 4rem;
+  background-size: 4rem;
+  background-color: transparent;
+  overflow: hidden;
+  margin: 0.8rem 0 0 1rem;
+}
+.navbar-input {
+  display: flex;
+  width: 40%;
+  border: 1px solid var(--component-black-color);
+  align-items: center;
+}
+.navbar-input > input {
+  flex: 1;
+  border: none;
+  margin: 0;
+}
+.navbar-input-icon {
+  width: 3.125rem !important;
+}
+.navbar-links {
+  display: flex;
+}
+.navbar-login-link {
+  margin-right: 0.8rem;
+  margin-left: 0;
+  text-decoration: none;
+  color: var(--component-black-color);
+}
+.navbar-signup-link {
+  margin-right: 0.8rem;
+  text-decoration: none;
+  color: var(--component-black-color);
+}
