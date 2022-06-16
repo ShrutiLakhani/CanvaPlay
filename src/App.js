@@ -17,7 +17,6 @@ function App() {
     <div className="App">
       <div>
         <Navbar />
-        {/* <Sidebar /> */}
       </div>
       <Routes>
         <Route path="/login" element={<LoginPage />} />

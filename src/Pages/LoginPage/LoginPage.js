@@ -41,7 +41,7 @@ function LoginPage() {
         navigate("/explore");
       }
     } catch (error) {
-      // setLoginError("An error occured");
+      setLoginError("An error occured");
       console.log("error", error.response.error);
     }
   };

@@ -1,6 +1,5 @@
 .login-wrapper {
   display: flex;
-  /* flex-direction: column; */
   height: 100vh;
   margin-top: 5rem;
   flex: 0.8;
