@@ -11,6 +11,7 @@ function LoginPage() {
   const { loginError, setLoginError } = useState("");
   const [loginData, setLoginData] = useState({ email: "", password: "" });
 
+  const setUserData = (name) => {
     return ({ target: { value } }) => {
       console.log("value", value);
       setLoginData((prevvalue) => ({ ...prevvalue, [name]: value }));
@@ -46,7 +47,6 @@ function LoginPage() {
   };
   return (
     <main className="login-wrapper">
-      <Sidebar />
       <section className="login-page-bottom-container">
         <div className="login-container">
           <form className="login-form" onSubmit={handleLogin}>
@@ -73,11 +73,9 @@ function LoginPage() {
             </div>
             <div className="forgot-pswrd-link">
               <a href="#">Forgot Password?</a>
-            </div>
-            <p>
-              <input className="style-input-checkbox" type="checkbox" />{" "}
+              <input className="style-input-checkbox" type="checkbox" />
               Remember me
-            </p>
+            </div>
             <button className="button-login-form border-style">LOGIN</button>
             <button
               className="button-login-form border-style"
@@ -94,5 +92,4 @@ function LoginPage() {
     </main>
   );
 }
-
 export default LoginPage;
