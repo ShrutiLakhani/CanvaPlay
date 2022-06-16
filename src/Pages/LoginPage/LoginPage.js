@@ -11,8 +11,6 @@ function LoginPage() {
   const { loginError, setLoginError } = useState("");
   const [loginData, setLoginData] = useState({ email: "", password: "" });
 
-  const setUserData = (name) => {
-    console.log("name", name);
     return ({ target: { value } }) => {
       console.log("value", value);
       setLoginData((prevvalue) => ({ ...prevvalue, [name]: value }));
@@ -39,6 +37,7 @@ function LoginPage() {
         setLoggedIn(true);
         const userToken = response.data.encodedToken;
         localStorage.setItem("userToken", userToken);
+        navigate("/explore");
       }
     } catch (error) {
       // setLoginError("An error occured");
