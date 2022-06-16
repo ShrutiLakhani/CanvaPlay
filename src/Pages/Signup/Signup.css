@@ -1,0 +1,75 @@
+.signup-wrapper {
+  display: flex;
+  margin-top: 5rem;
+  flex: 0.8;
+  position: relative;
+}
+
+.login-page-bottom-container {
+  position: absolute;
+  left: 35rem;
+  top: 2rem;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--component-container-color);
+  width: 27rem;
+  display: flex;
+  justify-content: center;
+  margin-left: 1rem;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.login-form {
+  margin: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input-container {
+  width: 21.875rem;
+  border-radius: 5px;
+  display: block;
+  margin: 0rem 2rem 1rem 0rem;
+}
+
+.button-signup-form {
+  display: block;
+  padding: 0.6rem;
+  width: 90%;
+  white-space: nowrap;
+  margin-right: 2rem;
+  background-color: var(--primary-blue-color);
+  color: var(--component-white-color);
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-container a {
+  text-decoration: none;
+}
+
+.form-bottom-section {
+  margin-top: 1rem 5.3rem 0 0;
+}
+
+.form-bottom-section .checkbox {
+  margin-left: 0.1rem;
+}
+
+.form-bottom-section input {
+  margin: 0 0.5rem 1rem 0;
+}
+
+.button-link {
+  color: var(--component-black-color);
+  margin-bottom: 1rem;
+}

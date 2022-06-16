@@ -1,0 +1,86 @@
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  margin-top: 5rem;
+  flex: 0.8;
+  position: relative;
+}
+
+.login-page-bottom-container {
+  position: absolute;
+  left: 35rem;
+  top: 2rem;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--component-container-color);
+  width: 27rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.login-form {
+  margin: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form:nth-child(5) {
+  justify-self: flex-start;
+}
+
+.form-input-container {
+  width: 21.875rem;
+  border-radius: 5px;
+  display: block;
+  margin: 0rem 2rem 1rem 0rem;
+}
+
+.login-container a {
+  text-decoration: none;
+}
+
+.loginform-bottom-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.loginform-bottom-section:first-child {
+  justify-content: flex-start;
+}
+
+.style-input-checkbox {
+  margin-top: 0rem;
+  /* margin-left: 2px; */
+}
+
+.button-link {
+  color: var(--component-black-color);
+}
+
+.button-login-form {
+  display: block;
+  padding: 0.6rem;
+  width: 90%;
+  white-space: nowrap;
+  background-color: var(--primary-blue-color);
+  color: var(--component-white-color);
+  border-radius: 5px;
+  margin: 0rem 2rem 1rem 0rem;
+}
+
+.forgot-pswrd-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-right: 1.5rem;
+  color: var(--component-black-color);
+}
