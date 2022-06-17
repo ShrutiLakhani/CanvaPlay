@@ -1,3 +1,4 @@
 import { useAuth, AuthProvider } from "./auth-context";
+import { useVideo, VideoProvider } from "./video-context";
 
-export { useAuth, AuthProvider };
+export { useAuth, AuthProvider, useVideo, VideoProvider };

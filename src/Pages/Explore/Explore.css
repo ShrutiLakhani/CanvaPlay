@@ -1,0 +1,24 @@
+.videolib-pages {
+  display: flex;
+  flex: 0.8;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  padding: 2.5rem 1.25rem;
+  padding-bottom: 0;
+}
+.video-pages {
+  display: flex;
+  gap: 6rem;
+  margin-top: 1rem;
+}
+.videolib-wrapper > h2 {
+  text-align: left;
+  margin-left: 16rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+.recommended-videos {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
