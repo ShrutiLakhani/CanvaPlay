@@ -20,7 +20,7 @@
   margin-left: 4rem;
 }
 .canva-logo-img {
-  background-image: url("../assets/Images/CLogo.svg");
+  background-image: url("../../assets/Images/CLogo.svg");
   background-repeat: no-repeat;
   mix-blend-mode: multiply;
   height: 4rem;

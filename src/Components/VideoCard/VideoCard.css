@@ -1,0 +1,61 @@
+.videocard-styling {
+  width: 18rem;
+  margin-bottom: 1.25rem;
+}
+.videocard-thumbnail {
+  height: 10rem;
+  width: 18rem;
+}
+.videocard-info {
+  display: flex;
+  width: 18rem;
+  background-color: (--component-container-color);
+}
+.video-avatar {
+  margin-top: 5px;
+  margin-left: 0.5rem;
+}
+.video-text {
+  white-space: nowrap;
+  padding-right: 1.563rem;
+  margin-left: 10px;
+  margin-bottom: 1rem;
+  margin-top: 5px;
+}
+.video-text > h4 {
+  font-size: 0.875rem;
+  margin-bottom: 5px;
+}
+.video-text > p {
+  font-size: 0.875rem;
+  color: var(--tertiary-color);
+}
+.videocard-styling-bottom {
+  background-color: var(--component-container-color);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  background-color: var(--tertiary-color);
+  padding: 1rem;
+  border-radius: 8px;
+  width: 12rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+}
+.dropdown-menu.active {
+  opacity: 1;
+}
+.dropdown-menu-btn {
+  white-space: nowrap;
+  padding: 5px 0.75rem;
+  border-radius: 5px;
+  margin: 8px;
+}

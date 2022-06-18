@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar, Sidebar } from "./Components/components";
+import { Navbar, VideoCard, Sidebar } from "./Components/components";
 import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 import {
