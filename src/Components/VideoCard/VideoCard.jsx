@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { useVideo, useWatchLater } from "../../context/context";
 import { DropdownPanel } from "../components";
 import "./VideoCard.css";
 
 function VideoCard({ video }) {
-  console.log("And here?");
-  console.log(video);
   const [showDropdown, setshowDropdown] = useState(true);
+  const { addToWatchlist, watchlistVideos } = useWatchLater();
 
   const {
-    id,
+    _id,
     thumbnail: { url },
     title,
     description,
@@ -17,6 +17,9 @@ function VideoCard({ video }) {
     creator_image,
     thumbnail,
   } = video;
+  const addtoWatchlater = (e, video) => {
+    addToWatchlist(video);
+  };
   return (
     <div className="videocard-styling">
       <img className="videocard-thumbnail" src={thumbnail} alt="" />
@@ -49,7 +52,12 @@ function VideoCard({ video }) {
                 showDropdown ? "dropdown-menu" : "dropdown-menu active"
               }`}
             >
-              <button className="dropdown-menu-btn">Add to Watch Later</button>
+              <button
+                className="dropdown-menu-btn"
+                onClick={(e) => addtoWatchlater(e, video)}
+              >
+                Add to Watch Later
+              </button>
               <button className="dropdown-menu-btn">Add to Liked Videos</button>
             </div>
           </div>

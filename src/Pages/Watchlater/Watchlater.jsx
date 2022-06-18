@@ -1,8 +1,8 @@
 import React from "react";
 import { WatchlaterCard, Sidebar } from "../../Components/components";
-import { useVideo } from "../../context/video-context";
+import { useVideo, useWatchLater } from "../../context/context";
 function Watchlater() {
-  const { allVideos } = useVideo();
+  const { watchlistVideos } = useWatchLater();
   return (
     <>
       <div className="videolib-wrapper">
@@ -10,7 +10,7 @@ function Watchlater() {
         <div className="video-pages">
           <Sidebar />
           <div className="recommended-videos">
-            {allVideos.map((video) => (
+            {watchlistVideos.map((video) => (
               <WatchlaterCard key={video._id} video={video} />
             ))}
           </div>

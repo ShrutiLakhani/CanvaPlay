@@ -4,8 +4,11 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./context/auth-context";
-import { VideoProvider } from "./context/video-context";
+import {
+  AuthProvider,
+  VideoProvider,
+  WatchlaterProvider,
+} from "./context/context";
 
 // Call make Server
 makeServer();
@@ -14,9 +17,11 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <VideoProvider>
-          <App />
-        </VideoProvider>
+        <WatchlaterProvider>
+          <VideoProvider>
+            <App />
+          </VideoProvider>
+        </WatchlaterProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
