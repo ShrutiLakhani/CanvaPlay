@@ -21,10 +21,8 @@ const VideoProvider = ({ children }) => {
     const fetchVideos = async () => {
       try {
         const { data, status } = await axios.get("/api/videos");
-        console.log(allVideos);
         if (status === 200) {
           setAllVideos(data.videos);
-          console.log(allVideos);
         }
       } catch (error) {
         console.log("error", error);

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useVideo, useWatchLater } from "../../context/context";
-import { DropdownPanel } from "../components";
-import "./VideoCard.css";
+import { useNavigate } from "react-router-dom";
+import { useWatchLater } from "../../context/watchlater-context";
+import "./WatchlaterCard.css";
 
-function VideoCard({ video }) {
+function WatchlaterCard({ video }) {
+  const navigate = useNavigate();
   const [showDropdown, setshowDropdown] = useState(true);
-  const { addToWatchlist, watchlistVideos } = useWatchLater();
-
+  const { removeFromWatchlist } = useWatchLater();
   const {
     _id,
     thumbnail: { url },
@@ -17,8 +17,9 @@ function VideoCard({ video }) {
     creator_image,
     thumbnail,
   } = video;
-  const addtoWatchlater = (e, video) => {
-    addToWatchlist(video);
+
+  const removeWatchlater = (e, id) => {
+    removeFromWatchlist(id);
   };
   return (
     <div className="videocard-styling">
@@ -44,21 +45,25 @@ function VideoCard({ video }) {
               setshowDropdown(!showDropdown);
             }}
           >
-            <span className="material-symbols-outlined dropdown">
+            <span className="material-symbols-outlined dropdown-watchlater">
               more_vert
             </span>
             <div
               className={`${
-                showDropdown ? "dropdown-menu" : "dropdown-menu active"
+                showDropdown
+                  ? "dropdown-watchlater-menu"
+                  : "dropdown-watchlater-menu active"
               }`}
             >
               <button
-                className="dropdown-menu-btn"
-                onClick={(e) => addtoWatchlater(e, video)}
+                className="dropdown-watchlater-menu-btn"
+                onClick={(e) => removeWatchlater(e, _id)}
               >
-                Add to Watch Later
+                Remove from Watch Later
               </button>
-              <button className="dropdown-menu-btn">Add to Liked Videos</button>
+              <button className="dropdown-watchlater-menu-btn-1">
+                Add to Liked Videos
+              </button>
             </div>
           </div>
         </div>
@@ -66,5 +71,4 @@ function VideoCard({ video }) {
     </div>
   );
 }
-
-export default VideoCard;
+export default WatchlaterCard;
