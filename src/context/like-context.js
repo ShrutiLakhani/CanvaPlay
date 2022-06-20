@@ -24,8 +24,29 @@ const LikedProvider = ({ children }) => {
       navigate("/login");
     }
   };
+
+  const removeFromLikedList = async (videoId) => {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data, status } = await axios.delete(
+        `/api/user/likes/${videoId}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if (status === 200) {
+        setLikedList(data.likes);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   return (
-    <LikedContext.Provider value={{ addToLikeList, likedList }}>
+    <LikedContext.Provider
+      value={{ addToLikeList, likedList, removeFromLikedList }}
+    >
       {children}
     </LikedContext.Provider>
   );

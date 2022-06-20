@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useWatchLater } from "../../context/watchlater-context";
+import { useLiked } from "../../context/like-context";
 import "./WatchlaterCard.css";
 
 function WatchlaterCard({ video }) {
   const navigate = useNavigate();
   const [showDropdown, setshowDropdown] = useState(true);
   const { removeFromWatchlist } = useWatchLater();
+  const { addToLikeList } = useLiked();
   const {
     _id,
     thumbnail: { url },
@@ -18,9 +20,13 @@ function WatchlaterCard({ video }) {
     thumbnail,
   } = video;
 
+  const addtoLikedVideos = (e, video) => {
+    addToLikeList(video);
+  };
   const removeWatchlater = (e, id) => {
     removeFromWatchlist(id);
   };
+
   return (
     <div className="videocard-styling">
       <img className="videocard-thumbnail" src={thumbnail} alt="" />
@@ -61,7 +67,12 @@ function WatchlaterCard({ video }) {
               >
                 Remove from Watch Later
               </button>
-              <button className="dropdown-watchlater-menu-btn-1">
+              <button
+                className="dropdown-watchlater-menu-btn-1"
+                onClick={(e) => {
+                  addtoLikedVideos(e, video);
+                }}
+              >
                 Add to Liked Videos
               </button>
             </div>
