@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useWatchLater } from "../../context/watchlater-context";
+import { removeItemFromLikedVideos } from "../../backend/controllers/LikeController";
 import { useLiked } from "../../context/like-context";
-import "./WatchlaterCard.css";
+import { useWatchLater } from "../../context/watchlater-context";
+import "./LikedVideoCard.css";
 
-function WatchlaterCard({ video }) {
+function LikedVideoCard({ video }) {
   const navigate = useNavigate();
   const [showDropdown, setshowDropdown] = useState(true);
-  const { removeFromWatchlist } = useWatchLater();
-  const { addToLikeList } = useLiked();
+  const { addToWatchlist } = useWatchLater();
+  const { removeFromLikedList } = useLiked();
   const {
     _id,
     thumbnail: { url },
@@ -20,11 +21,12 @@ function WatchlaterCard({ video }) {
     thumbnail,
   } = video;
 
-  const addtoLikedVideos = (e, video) => {
-    addToLikeList(video);
+  const addToWatchLater = (e, video) => {
+    addToWatchlist(video);
   };
-  const removeWatchlater = (e, id) => {
-    removeFromWatchlist(id);
+
+  const removeFromLikedVideos = (e, id) => {
+    removeFromLikedList(id);
   };
 
   return (
@@ -62,18 +64,20 @@ function WatchlaterCard({ video }) {
               }`}
             >
               <button
-                className="dropdown-watchlater-menu-btn"
-                onClick={(e) => removeWatchlater(e, _id)}
-              >
-                Remove from Watch Later
-              </button>
-              <button
-                className="dropdown-watchlater-menu-btn-1"
+                className="dropdown-menu-btn-1"
                 onClick={(e) => {
-                  addtoLikedVideos(e, video);
+                  addToWatchLater(e, video);
                 }}
               >
-                Add to Liked Videos
+                Add to Watch Later
+              </button>
+              <button
+                className="dropdown-menu-btn"
+                onClick={(e) => {
+                  removeFromLikedVideos(e, _id);
+                }}
+              >
+                Remove from Liked Videos
               </button>
             </div>
           </div>
@@ -82,4 +86,4 @@ function WatchlaterCard({ video }) {
     </div>
   );
 }
-export default WatchlaterCard;
+export default LikedVideoCard;

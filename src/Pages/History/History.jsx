@@ -1,9 +1,10 @@
 import React from "react";
+import { HistoryCard } from "../../Components/components";
 
 function History() {
   return (
     <div>
-      <h1>History</h1>
+      <HistoryCard />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import {
   AuthProvider,
   VideoProvider,
   WatchlaterProvider,
+  LikedProvider,
 } from "./context/context";
 
 // Call make Server
@@ -17,11 +18,13 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <WatchlaterProvider>
-          <VideoProvider>
-            <App />
-          </VideoProvider>
-        </WatchlaterProvider>
+        <LikedProvider>
+          <WatchlaterProvider>
+            <VideoProvider>
+              <App />
+            </VideoProvider>
+          </WatchlaterProvider>
+        </LikedProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

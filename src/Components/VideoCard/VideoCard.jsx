@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useVideo, useWatchLater } from "../../context/context";
+import { useVideo, useWatchLater, useLiked } from "../../context/context";
 import { DropdownPanel } from "../components";
 import "./VideoCard.css";
 
 function VideoCard({ video }) {
   const [showDropdown, setshowDropdown] = useState(true);
   const { addToWatchlist, watchlistVideos } = useWatchLater();
+  const { addToLikeList } = useLiked();
 
   const {
     _id,
@@ -17,9 +18,15 @@ function VideoCard({ video }) {
     creator_image,
     thumbnail,
   } = video;
+
   const addtoWatchlater = (e, video) => {
     addToWatchlist(video);
   };
+
+  const addtoLikedVideos = (e, video) => {
+    addToLikeList(video);
+  };
+
   return (
     <div className="videocard-styling">
       <img className="videocard-thumbnail" src={thumbnail} alt="" />
@@ -58,7 +65,12 @@ function VideoCard({ video }) {
               >
                 Add to Watch Later
               </button>
-              <button className="dropdown-menu-btn">Add to Liked Videos</button>
+              <button
+                className="dropdown-menu-btn"
+                onClick={(e) => addtoLikedVideos(e, video)}
+              >
+                Add to Liked Videos
+              </button>
             </div>
           </div>
         </div>
