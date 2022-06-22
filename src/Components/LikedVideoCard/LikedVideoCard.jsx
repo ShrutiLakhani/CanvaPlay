@@ -29,9 +29,18 @@ function LikedVideoCard({ video }) {
     removeFromLikedList(id);
   };
 
+  const navigateToVideo = () => {
+    navigate(`/video/${_id}`);
+  };
+
   return (
     <div className="videocard-styling">
-      <img className="videocard-thumbnail" src={thumbnail} alt="" />
+      <img
+        className="videocard-thumbnail"
+        src={thumbnail}
+        alt=""
+        onClick={navigateToVideo}
+      />
       <div className="videocard-styling-bottom">
         <div className="videocard-info">
           <img

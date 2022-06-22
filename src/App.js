@@ -10,6 +10,7 @@ import {
   Liked,
   Playlist,
   Watchlater,
+  VideoPage,
 } from "./Pages/pages";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/watchlater" element={<Watchlater />} />
         <Route path="/liked" element={<Liked />} />
         <Route path="/playlist" element={<Playlist />} />
+        <Route path="/video/:videoId" element={<VideoPage />} />
       </Routes>
     </div>
   );

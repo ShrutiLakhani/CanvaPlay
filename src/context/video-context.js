@@ -1,6 +1,7 @@
 import { useContext, useState, createContext, useEffect } from "react";
 import { Playlist } from "../Pages/pages";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const VideoContext = createContext();
 
@@ -16,6 +17,9 @@ const initialState = {
 
 const VideoProvider = ({ children }) => {
   const [allVideos, setAllVideos] = useState([]);
+  const [historyVideo, setHistoryVideo] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -31,8 +35,72 @@ const VideoProvider = ({ children }) => {
     fetchVideos();
   }, []);
 
+  const addToHistory = async (video) => {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data, status } = await axios.post(
+        "/api/user/history",
+        { video },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if (status === 201) {
+        setHistoryVideo(data.history);
+      }
+    } catch (error) {
+      console.log("error", error);
+      // navigate("/login");
+    }
+  };
+
+  const deleteFromHistory = async (videoId) => {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data, status } = await axios.delete(
+        `/api/user/history/${videoId}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if (status === 200) {
+        setHistoryVideo(data.history);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  const clearHistory = async (video) => {
+    const token = localStorage.getItem("userToken");
+    try {
+      const { data, status } = await axios.delete("/api/user/history/all", {
+        headers: {
+          authorization: token,
+        },
+      });
+      if (status === 200) {
+        setHistoryVideo([]);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
   return (
-    <VideoContext.Provider value={{ allVideos }}>
+    <VideoContext.Provider
+      value={{
+        allVideos,
+        addToHistory,
+        historyVideo,
+        deleteFromHistory,
+        clearHistory,
+      }}
+    >
       {children}
     </VideoContext.Provider>
   );

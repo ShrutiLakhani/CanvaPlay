@@ -19,7 +19,7 @@ export const videos = [
     category: "Interview",
   },
   {
-    _id: "mkdzQ&t=1s",
+    _id: "MhXwO_mkdzQ",
     title: "Talk With Anna Wintour",
     description:
       "Michael talks about his favorite fabric to design with, why he loves living in New York, and what article of clothing he believes every woman should own.",

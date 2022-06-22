@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useWatchLater } from "../../context/watchlater-context";
 import { useLiked } from "../../context/like-context";
+
 import "./WatchlaterCard.css";
 
 function WatchlaterCard({ video }) {
@@ -27,9 +28,17 @@ function WatchlaterCard({ video }) {
     removeFromWatchlist(id);
   };
 
+  const navigateToVideo = () => {
+    navigate(`/video/${_id}`);
+  };
   return (
     <div className="videocard-styling">
-      <img className="videocard-thumbnail" src={thumbnail} alt="" />
+      <img
+        className="videocard-thumbnail"
+        src={thumbnail}
+        alt=""
+        onClick={navigateToVideo}
+      />
       <div className="videocard-styling-bottom">
         <div className="videocard-info">
           <img

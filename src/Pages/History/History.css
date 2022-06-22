@@ -1,0 +1,14 @@
+.btn-primary {
+  padding: 0.8rem 1.3rem;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: var(--component-black-color);
+  color: var(--component-white-color);
+  position: absolute;
+  right: 5rem;
+  top: 7rem;
+}
+.history-video-pages {
+  display: flex;
+  position: absolute;
+}

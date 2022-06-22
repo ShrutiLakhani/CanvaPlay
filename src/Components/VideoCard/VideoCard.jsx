@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useVideo, useWatchLater, useLiked } from "../../context/context";
 import { DropdownPanel } from "../components";
+import { Link } from "react-router-dom";
 import "./VideoCard.css";
+import { useNavigate } from "react-router-dom";
 
 function VideoCard({ video }) {
   const [showDropdown, setshowDropdown] = useState(true);
@@ -19,6 +21,12 @@ function VideoCard({ video }) {
     thumbnail,
   } = video;
 
+  const navigate = useNavigate();
+
+  const navigateToVideo = () => {
+    navigate(`/video/${_id}`);
+  };
+
   const addtoWatchlater = (e, video) => {
     addToWatchlist(video);
   };
@@ -29,7 +37,12 @@ function VideoCard({ video }) {
 
   return (
     <div className="videocard-styling">
-      <img className="videocard-thumbnail" src={thumbnail} alt="" />
+      <img
+        className="videocard-thumbnail"
+        src={thumbnail}
+        alt=""
+        onClick={navigateToVideo}
+      />
       <div className="videocard-styling-bottom">
         <div className="videocard-info">
           <img

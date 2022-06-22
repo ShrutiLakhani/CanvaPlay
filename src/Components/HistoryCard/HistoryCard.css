@@ -1,0 +1,25 @@
+.dropdown-history-menu-btn {
+  white-space: nowrap;
+  padding: 5px 0.75rem;
+  border-radius: 5px;
+  margin: 8px;
+}
+.video-container {
+  position: relative;
+}
+.videocard-thumbnail {
+  height: 10rem;
+  width: 18rem;
+}
+.close-history-btn {
+  position: absolute;
+  top: 0.5rem;
+  left: 16rem;
+  border: 1px solid black;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.close-history-btn:hover {
+  font-weight: 800;
+}
