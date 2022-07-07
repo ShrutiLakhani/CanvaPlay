@@ -1,24 +1,26 @@
-import { useContext, useState, createContext, useEffect } from "react";
+import {
+  useContext,
+  useState,
+  createContext,
+  useEffect,
+  useReducer,
+} from "react";
 import { Playlist } from "../Pages/pages";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { videoReducer } from "../reducer/reducer-function";
 
 const VideoContext = createContext();
 
 const initialState = {
-  watchlist: [],
-  playlist: [],
-  likedList: [],
-  history: [],
-  categoryList: "All",
-  searchFor: "",
-  sortBy: "",
+  categoryList: [],
 };
 
 const VideoProvider = ({ children }) => {
+  const [videoData, videoDispatch] = useReducer(videoReducer, initialState);
   const [allVideos, setAllVideos] = useState([]);
   const [historyVideo, setHistoryVideo] = useState([]);
-
+  const [filteredList, setFilteredList] = useState(allVideos);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,6 +35,10 @@ const VideoProvider = ({ children }) => {
       }
     };
     fetchVideos();
+  }, []);
+
+  useEffect(() => {
+    categories(videoDispatch);
   }, []);
 
   const addToHistory = async (video) => {
@@ -91,14 +97,40 @@ const VideoProvider = ({ children }) => {
     }
   };
 
+  const categories = async (videoDispatch) => {
+    try {
+      const response = await axios.get("/api/categories");
+      if (response.status === 200) {
+        videoDispatch({
+          type: "ALL_CATEGORIES",
+          payload: response.data.categories,
+        });
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+
+  const filterByCategory = (category, allVideos) => {
+    return category === "All"
+      ? setFilteredList(allVideos)
+      : setFilteredList(
+          allVideos.filter((video) => video.category === category)
+        );
+  };
   return (
     <VideoContext.Provider
       value={{
         allVideos,
+        videoData,
         addToHistory,
         historyVideo,
         deleteFromHistory,
         clearHistory,
+        setFilteredList,
+        filteredList,
+        categories,
+        filterByCategory,
       }}
     >
       {children}

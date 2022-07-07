@@ -4,11 +4,13 @@
 }
 .video-pages {
   display: flex;
+  list-style: none;
+  gap: 2rem;
 }
 .video-info-container {
   display: flex;
   justify-content: flex-start;
-  margin-left: 17.4rem;
+  margin-left: 13.3rem;
   border: lightgray;
   background-color: var(--drop-hover-color);
   width: 1024px;
@@ -31,4 +33,9 @@
   margin-right: 1rem;
   margin-top: 1rem;
   gap: 1rem;
+}
+.suggested-videos {
+  display: flex;
+  margin: 2rem 2rem;
+  gap: 4rem;
 }

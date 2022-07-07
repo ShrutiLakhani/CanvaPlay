@@ -4,6 +4,7 @@ import VideoCard from "./VideoCard/VideoCard";
 import WatchlaterCard from "./WatchlaterCard/WatchlaterCard";
 import HistoryCard from "./HistoryCard/HistoryCard";
 import LikedVideoCard from "./LikedVideoCard/LikedVideoCard";
+import CategoryList from "./CategoryList/CategoryList";
 
 export {
   Navbar,
@@ -12,4 +13,5 @@ export {
   WatchlaterCard,
   HistoryCard,
   LikedVideoCard,
+  CategoryList,
 };

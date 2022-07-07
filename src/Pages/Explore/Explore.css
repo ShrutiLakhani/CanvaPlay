@@ -21,4 +21,10 @@
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  flex-direction: column;
+}
+.filtered-videos {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }

@@ -2,18 +2,22 @@ import React from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
 import { useVideo, useWatchLater, useLiked } from "../../context/context";
-import { Sidebar } from "../../Components/components";
+import { Sidebar, VideoCard } from "../../Components/components";
 import "./VideoPage.css";
 import { Link } from "react-router-dom";
 
 function VideoPage() {
   const { videoId } = useParams();
-  const { allVideos, addToHistory } = useVideo();
+  const { allVideos, addToHistory, filteredList } = useVideo();
   const { addToWatchlist } = useWatchLater();
   const { addToLikeList } = useLiked();
 
   const getVideos = (allVideos, videoId) => {
     return allVideos.find((video) => video._id === videoId);
+  };
+
+  const suggestedVideos = (filteredVideos, video) => {
+    return filteredVideos.filter((vid) => vid.category === video.category);
   };
 
   const addToWatchLater = (e, video) => {
@@ -29,6 +33,7 @@ function VideoPage() {
   };
 
   const video = getVideos(allVideos, videoId);
+  const suggestedList = suggestedVideos(filteredList, video);
   return (
     <div className="video-container">
       <div className="video-pages">
@@ -75,6 +80,16 @@ function VideoPage() {
             <span class="material-symbols-outlined">playlist_play</span>
           </Link>
         </div>
+      </div>
+      <div className="suggested-videos">
+        <h3>View similar</h3>
+        <ul className="video-pages">
+          {suggestedList.map((video) => (
+            <li className="videocard" key={video._id}>
+              <VideoCard video={video} key={video._id} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
