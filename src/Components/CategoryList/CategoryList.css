@@ -6,7 +6,7 @@
   font-weight: 500;
 }
 .category-list {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   display: flex;
   margin: 1rem 15.5rem 0;
   gap: 2rem;

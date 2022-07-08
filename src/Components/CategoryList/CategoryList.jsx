@@ -5,29 +5,35 @@ import { VideoCard } from "../components";
 
 function CategoryList() {
   const {
-    setfilteredList,
+    setFilteredList,
+    setFilteredVideos,
     categories,
     allVideos,
     filterByCategory,
     videoData,
     videoDispatch,
     filteredList,
+    setCurrentCategory,
   } = useVideo();
   const { categoryList } = videoData;
 
   return (
     <ul className="category-list">
-      {categoryList.map(({ _id, categoryName }) => (
-        <li
-          key={_id}
-          className={
-            categoryName === videoData.category ? "category active" : "category"
-          }
-          onClick={() => filterByCategory(categoryName, allVideos)}
-        >
-          {categoryName}
-        </li>
-      ))}
+      {categoryList.map(({ _id, categoryName }) => {
+        return (
+          <li
+            key={_id}
+            className={
+              categoryName === videoData.category
+                ? "category active"
+                : "category"
+            }
+            onClick={() => setCurrentCategory(categoryName)}
+          >
+            {categoryName}
+          </li>
+        );
+      })}
     </ul>
   );
 }

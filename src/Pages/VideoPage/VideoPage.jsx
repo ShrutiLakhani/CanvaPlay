@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function VideoPage() {
   const { videoId } = useParams();
-  const { allVideos, addToHistory, filteredList } = useVideo();
+  const { allVideos, addToHistory, filteredList, currentCategory } = useVideo();
   const { addToWatchlist } = useWatchLater();
   const { addToLikeList } = useLiked();
 
@@ -33,7 +33,7 @@ function VideoPage() {
   };
 
   const video = getVideos(allVideos, videoId);
-  const suggestedList = suggestedVideos(filteredList, video);
+  const suggestedList = suggestedVideos(allVideos, video);
   return (
     <div className="video-container">
       <div className="video-pages">

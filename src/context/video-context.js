@@ -19,8 +19,10 @@ const initialState = {
 const VideoProvider = ({ children }) => {
   const [videoData, videoDispatch] = useReducer(videoReducer, initialState);
   const [allVideos, setAllVideos] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState("All");
   const [historyVideo, setHistoryVideo] = useState([]);
-  const [filteredList, setFilteredList] = useState(allVideos);
+  // const [filteredList, setFilteredList] = useState(allVideos);
+  const [isDefault, setIsDefault] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -110,14 +112,6 @@ const VideoProvider = ({ children }) => {
       console.log("error", error);
     }
   };
-
-  const filterByCategory = (category, allVideos) => {
-    return category === "All"
-      ? setFilteredList(allVideos)
-      : setFilteredList(
-          allVideos.filter((video) => video.category === category)
-        );
-  };
   return (
     <VideoContext.Provider
       value={{
@@ -127,10 +121,12 @@ const VideoProvider = ({ children }) => {
         historyVideo,
         deleteFromHistory,
         clearHistory,
-        setFilteredList,
-        filteredList,
+        // setFilteredList,
+        // filteredList,
         categories,
-        filterByCategory,
+        // filterByCategory,
+        currentCategory,
+        setCurrentCategory,
       }}
     >
       {children}
