@@ -1,19 +1,36 @@
 import React from "react";
 import "./Explore.css";
-import { Sidebar, VideoCard } from "../../Components/components";
+import { CategoryList, Sidebar, VideoCard } from "../../Components/components";
 import { useVideo } from "../../context/context";
 function Explore() {
-  const { allVideos, fetchVideos } = useVideo();
+  const {
+    allVideos,
+    fetchVideos,
+    filteredList,
+    currentCategory,
+    setCurrentCategory,
+  } = useVideo();
+  const filterByCategory = (category, allVideos) => {
+    return category === "All"
+      ? [...allVideos]
+      : allVideos.filter((video) => video.category === category);
+  };
+  const result = filterByCategory(currentCategory, allVideos);
   return (
     <>
       <div className="videolib-wrapper">
-        <h2>Recommended</h2>
+        {/* <h2>Recommended</h2> */}
         <div className="video-pages">
           <Sidebar />
           <div className="recommended-videos">
-            {allVideos.map((video) => (
-              <VideoCard key={video._id} video={video} />
-            ))}
+            <div className="category-container">
+              <CategoryList />
+            </div>
+            <div className="filtered-videos">
+              {result.map((video) => (
+                <VideoCard key={video._id} video={video} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,19 @@
+.category {
+  border: 1px solid var(--component-black-color);
+  padding: 2px 1rem;
+  border-radius: 2rem;
+  background-color: var(--component-container-color);
+  font-weight: 500;
+}
+.category-list {
+  /* margin-top: 2rem; */
+  display: flex;
+  margin: 1rem 15.5rem 0;
+  gap: 2rem;
+  list-style: none;
+}
+.category.active {
+  background-color: yellow;
+  color: var(--component-container-color);
+  border: none;
+}

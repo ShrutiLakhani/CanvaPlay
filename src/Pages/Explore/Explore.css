@@ -22,3 +22,13 @@
   gap: 2rem;
   flex-wrap: wrap;
 }
+.filtered-videos {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 0rem;
+}
+.category-container {
+  margin-bottom: 0rem;
+  height: 10px;
+}
