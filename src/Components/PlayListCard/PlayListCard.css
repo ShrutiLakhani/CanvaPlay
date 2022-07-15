@@ -1,0 +1,4 @@
+.playlist-card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
