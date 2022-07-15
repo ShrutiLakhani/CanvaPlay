@@ -8,9 +8,10 @@ import {
   Explore,
   History,
   Liked,
-  Playlist,
+  PlayListPage,
   Watchlater,
   VideoPage,
+  Playlist,
 } from "./Pages/pages";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/watchlater" element={<Watchlater />} />
         <Route path="/liked" element={<Liked />} />
         <Route path="/playlist" element={<Playlist />} />
+        <Route path="/playlist/:videoId" element={<PlayListPage />} />
         <Route path="/video/:videoId" element={<VideoPage />} />
       </Routes>
     </div>

@@ -14,6 +14,9 @@ const VideoContext = createContext();
 
 const initialState = {
   categoryList: [],
+  playlists: [],
+  video: [],
+  searchFor: "",
 };
 
 const VideoProvider = ({ children }) => {
@@ -21,8 +24,6 @@ const VideoProvider = ({ children }) => {
   const [allVideos, setAllVideos] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("All");
   const [historyVideo, setHistoryVideo] = useState([]);
-  // const [filteredList, setFilteredList] = useState(allVideos);
-  const [isDefault, setIsDefault] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -121,6 +122,7 @@ const VideoProvider = ({ children }) => {
         historyVideo,
         deleteFromHistory,
         clearHistory,
+        videoDispatch,
         // setFilteredList,
         // filteredList,
         categories,

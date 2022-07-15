@@ -13,7 +13,6 @@ function LoginPage() {
 
   const setUserData = (name) => {
     return ({ target: { value } }) => {
-      console.log("value", value);
       setLoginData((prevvalue) => ({ ...prevvalue, [name]: value }));
     };
   };

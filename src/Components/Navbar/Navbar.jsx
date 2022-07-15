@@ -1,7 +1,9 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { useVideo } from "../../context/context";
 function Navbar() {
+  const { videoDispatch } = useVideo();
   return (
     <>
       <div className="canva-navbar">
@@ -10,7 +12,12 @@ function Navbar() {
           <small className="logo-name">CanvaPlay</small>
         </div>
         <div className="navbar-input">
-          <input type="text" />
+          <input
+            type="text"
+            onChange={(e) =>
+              videoDispatch({ type: "SEARCH_FOR", payload: e.target.value })
+            }
+          />
           <span className="material-symbols-outlined navbar-input-icon">
             search
           </span>
