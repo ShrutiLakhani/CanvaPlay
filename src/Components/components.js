@@ -5,6 +5,8 @@ import WatchlaterCard from "./WatchlaterCard/WatchlaterCard";
 import HistoryCard from "./HistoryCard/HistoryCard";
 import LikedVideoCard from "./LikedVideoCard/LikedVideoCard";
 import CategoryList from "./CategoryList/CategoryList";
+import PlayListCard from "./PlayListCard/PlayListCard";
+import PlayListModal from "./PlayListModal/PlayListModal";
 
 export {
   Navbar,
@@ -14,4 +16,6 @@ export {
   HistoryCard,
   LikedVideoCard,
   CategoryList,
+  PlayListCard,
+  PlayListModal,
 };

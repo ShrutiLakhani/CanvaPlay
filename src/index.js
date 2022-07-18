@@ -9,7 +9,9 @@ import {
   VideoProvider,
   WatchlaterProvider,
   LikedProvider,
+  PlaylistProvider,
 } from "./context/context";
+import PlayList from "./Components/PlayListCard/PlayListCard";
 
 // Call make Server
 makeServer();
@@ -18,13 +20,15 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <LikedProvider>
-          <WatchlaterProvider>
-            <VideoProvider>
-              <App />
-            </VideoProvider>
-          </WatchlaterProvider>
-        </LikedProvider>
+        <PlaylistProvider>
+          <LikedProvider>
+            <WatchlaterProvider>
+              <VideoProvider>
+                <App />
+              </VideoProvider>
+            </WatchlaterProvider>
+          </LikedProvider>
+        </PlaylistProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

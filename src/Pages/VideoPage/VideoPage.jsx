@@ -1,16 +1,24 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import { useParams } from "react-router-dom";
-import { useVideo, useWatchLater, useLiked } from "../../context/context";
+import { PlayListModal } from "../../Components/components";
+import {
+  useVideo,
+  useWatchLater,
+  useLiked,
+  usePlaylist,
+} from "../../context/context";
 import { Sidebar, VideoCard } from "../../Components/components";
 import "./VideoPage.css";
 import { Link } from "react-router-dom";
 
 function VideoPage() {
+  const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
   const { videoId } = useParams();
   const { allVideos, addToHistory, filteredList, currentCategory } = useVideo();
   const { addToWatchlist } = useWatchLater();
   const { addToLikeList } = useLiked();
+  const { addToPlaylistVideos } = usePlaylist();
 
   const getVideos = (allVideos, videoId) => {
     return allVideos.find((video) => video._id === videoId);
@@ -48,6 +56,7 @@ function VideoPage() {
           url={`https://wwww.youtube.com/watch?v=${videoId}`}
         />
       </div>
+
       <div className="video-info-container">
         <img
           src={video.creator_image}
@@ -76,9 +85,17 @@ function VideoPage() {
           >
             favorite
           </span>
-          <Link to="/playlist" className="sidebar-links-name">
-            <span class="material-symbols-outlined">playlist_play</span>
-          </Link>
+          {/* <Link to="/playlist" className="sidebar-links-name"> */}
+          <span
+            class="material-symbols-outlined"
+            onClick={() => {
+              setShowPlaylistModal((prev) => !prev);
+            }}
+          >
+            playlist_play
+          </span>
+          {/* </Link> */}
+          {showPlaylistModal && <PlayListModal key={video._id} video={video} />}
         </div>
       </div>
       <div className="suggested-videos">

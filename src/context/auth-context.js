@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
   const userToken = localStorage.getItem("userToken");
 
   return (
-    <AuthContext.Provider value={{ loggedIn, setLoggedIn }}>
+    <AuthContext.Provider value={{ loggedIn, setLoggedIn, userToken }}>
       {children}
     </AuthContext.Provider>
   );

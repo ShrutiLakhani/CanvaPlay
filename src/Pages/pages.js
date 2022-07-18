@@ -4,8 +4,9 @@ import Liked from "./Liked/Liked";
 import LoginPage from "./LoginPage/LoginPage";
 import Signup from "./Signup/Signup";
 import Watchlater from "./Watchlater/Watchlater";
-import Playlist from "./Playlist/Playlist";
 import VideoPage from "./VideoPage/VideoPage";
+import PlayListPage from "./PlaylistPage/PlayListPage";
+import Playlist from "./Playlist/Playlist";
 
 export {
   Explore,
@@ -14,6 +15,7 @@ export {
   LoginPage,
   Signup,
   Watchlater,
-  Playlist,
   VideoPage,
+  PlayListPage,
+  Playlist,
 };
