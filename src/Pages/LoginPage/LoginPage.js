@@ -37,7 +37,7 @@ function LoginPage() {
         setLoggedIn(true);
         const userToken = response.data.encodedToken;
         localStorage.setItem("userToken", userToken);
-        navigate("/explore");
+        navigate("/");
       }
     } catch (error) {
       setLoginError("An error occured");

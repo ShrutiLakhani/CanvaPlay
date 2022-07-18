@@ -24,13 +24,14 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/mock" element={<Mockman />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/explore" element={<Explore />} />
+        <Route path="/" element={<Explore />} />
         <Route path="/history" element={<History />} />
         <Route path="/watchlater" element={<Watchlater />} />
         <Route path="/liked" element={<Liked />} />
         <Route path="/playlist" element={<Playlist />} />
         <Route path="/playlist/:videoId" element={<PlayListPage />} />
         <Route path="/video/:videoId" element={<VideoPage />} />
+        <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>
   );

@@ -6,7 +6,7 @@ function Sidebar() {
     <div className="sidebar-left">
       <div className="sidebar-links">
         <span class="material-symbols-outlined">explore</span>
-        <Link to="/explore" className="sidebar-links-name">
+        <Link to="/" className="sidebar-links-name">
           Explore
         </Link>
       </div>

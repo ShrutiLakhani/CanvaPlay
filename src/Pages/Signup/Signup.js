@@ -27,7 +27,7 @@ function Signup() {
         const userToken = data.encodedToken;
         setLoggedIn(true);
         localStorage.getItem("userToken", userToken);
-        navigate("/explore");
+        navigate("/");
       }
     } catch (error) {
       console.log("error", error.response.error);
