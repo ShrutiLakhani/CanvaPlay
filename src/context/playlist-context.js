@@ -5,6 +5,7 @@ import { useVideo } from "./context";
 import { useNavigate } from "react-router-dom";
 import { ActiveModelSerializer } from "miragejs";
 import { videoReducer } from "../reducer/reducer-function";
+import Toast from "../Components/Toast";
 
 const PlaylistContext = createContext();
 
@@ -44,10 +45,14 @@ const PlaylistProvider = ({ children }) => {
             payload: data.playlists,
           });
           setPlaylist({ title: "", description: "" });
+          Toast({ type: "success", message: "Playlist Created" });
         }
       } catch (error) {
         console.log(error);
       }
+    } else {
+      Toast({ type: "error", message: "Please login to continue" });
+      navigate("/login");
     }
   };
   const addToPlaylist = async (playlistId, video, videoDispatch) => {
@@ -68,11 +73,14 @@ const PlaylistProvider = ({ children }) => {
             type: "ADD_TO_PLAYLIST",
             payload: data.playlist,
           });
+          Toast({ type: "success", message: "Added to Playlist" });
         }
       } catch (error) {
         console.log("error", error);
-        //   navigate("/login");
       }
+    } else {
+      Toast({ type: "error", message: "Please login to continue" });
+      navigate("/login");
     }
   };
   const removePlaylist = async (playlist, videoDispatch) => {
@@ -90,10 +98,14 @@ const PlaylistProvider = ({ children }) => {
             type: "DELETE_PLAYLIST",
             payload: response.data.playlists,
           });
+          Toast({ type: "success", message: "Playlist Deleted" });
         }
       } catch (error) {
         console.log("error", error);
       }
+    } else {
+      Toast({ type: "error", message: "Please login to continue" });
+      navigate("/login");
     }
   };
 
@@ -114,10 +126,14 @@ const PlaylistProvider = ({ children }) => {
             type: "DELETE_FROM_PLAYLIST",
             payload: response.data.playlist,
           });
+          Toast({ type: "success", message: "Deleted from Playlist" });
         }
       } catch (error) {
         console.log(error.message);
       }
+    } else {
+      Toast({ type: "error", message: "Please login to continue" });
+      navigate("/login");
     }
   };
 

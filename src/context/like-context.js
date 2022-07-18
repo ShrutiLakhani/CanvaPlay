@@ -2,6 +2,7 @@ import { useContext, useState, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./auth-context";
 import axios from "axios";
+import Toast from "../Components/Toast";
 
 const LikedContext = createContext();
 
@@ -21,11 +22,18 @@ const LikedProvider = ({ children }) => {
         );
         if (response.status === 201) {
           setLikedList(response.data.likes);
+          Toast({ type: "success", message: "Added to Liked Videos" });
         }
       } catch (error) {
         console.log("error", error);
-        navigate("/login");
+        Toast({
+          type: "error",
+          message: "Oops!Something went wrong. Please try again",
+        });
       }
+    } else {
+      Toast({ type: "error", message: "Please login to continue" });
+      navigate("/login");
     }
   };
 
@@ -43,10 +51,18 @@ const LikedProvider = ({ children }) => {
         );
         if (status === 200) {
           setLikedList(data.likes);
+          Toast({ type: "success", message: "Removed from Liked Videos" });
         }
       } catch (error) {
         console.log("error", error);
+        Toast({
+          type: "error",
+          message: "Oops!Something went wrong. Please try again",
+        });
       }
+    } else {
+      Toast({ type: "error", message: "Please login to continue" });
+      navigate("/login");
     }
   };
   return (

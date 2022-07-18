@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth } from "./auth-context";
 import { useVideo } from "./video-context";
 import { useNavigate } from "react-router-dom";
+import Toast from "../Components/Toast";
 
 const WatchlaterContext = createContext();
 
@@ -26,11 +27,18 @@ const WatchlaterProvider = ({ children }) => {
         );
         if (status === 201) {
           setWatchlistVideos(data.watchlater);
+          Toast({ type: "success", message: "Added to Watchlist" });
         }
       } catch (error) {
         console.log("error", error);
-        navigate("/login");
+        Toast({
+          type: "error",
+          message: "Oops!Something went wrong. Please try again",
+        });
       }
+    } else {
+      Toast({ type: "error", message: "Please login to continue" });
+      navigate("/login");
     }
   };
   const removeFromWatchlist = async (videoId) => {
@@ -47,10 +55,18 @@ const WatchlaterProvider = ({ children }) => {
         );
         if (status === 200) {
           setWatchlistVideos(data.watchlater);
+          Toast({ type: "success", message: "Removed from Watchlist" });
         }
       } catch (error) {
         console.log("error", error);
+        Toast({
+          type: "error",
+          message: "Oops!Something went wrong. Please try again",
+        });
       }
+    } else {
+      Toast({ type: "error", message: "Please login to continue" });
+      navigate("/login");
     }
   };
   return (
