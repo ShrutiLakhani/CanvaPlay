@@ -62,10 +62,6 @@ const VideoProvider = ({ children }) => {
       }
     } catch (error) {
       console.log("error", error);
-      Toast({
-        type: "error",
-        message: "Oops!Something went wrong. Please try again",
-      });
     }
   };
 

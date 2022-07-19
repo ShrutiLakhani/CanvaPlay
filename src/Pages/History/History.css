@@ -5,10 +5,17 @@
   background-color: var(--component-black-color);
   color: var(--component-white-color);
   position: absolute;
-  right: 5rem;
-  top: 7rem;
+  right: 1rem;
+  top: 5rem;
 }
 .history-video-pages {
   display: flex;
   position: absolute;
+  margin-top: 2rem;
+}
+.history-recommended-videos {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }

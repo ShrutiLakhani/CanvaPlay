@@ -10,7 +10,7 @@
 .video-info-container {
   display: flex;
   justify-content: flex-start;
-  margin-left: 13.3rem;
+  margin-left: 15.2rem;
   border: lightgray;
   background-color: var(--drop-hover-color);
   width: 1024px;

@@ -6,7 +6,6 @@ function Watchlater() {
   return (
     <>
       <div className="videolib-wrapper">
-        <h2>Recommended</h2>
         <div className="video-pages">
           <Sidebar />
           <div className="recommended-videos">

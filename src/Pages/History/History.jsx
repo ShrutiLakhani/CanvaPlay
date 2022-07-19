@@ -14,7 +14,7 @@ function History({ video }) {
       <div className="videolib-wrapper">
         <div className="history-video-pages">
           <Sidebar />
-          <div className="recommended-videos">
+          <div className="history-recommended-videos">
             {historyVideo.map((video) => (
               <HistoryCard key={video._id} video={video} />
             ))}
