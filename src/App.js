@@ -2,6 +2,8 @@ import "./App.css";
 import { Navbar, VideoCard, Sidebar } from "./Components/components";
 import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
+import { ToastContainer, toast } from "react-toastify";
+
 import {
   LoginPage,
   Signup,
@@ -33,6 +35,7 @@ function App() {
         <Route path="/video/:videoId" element={<VideoPage />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

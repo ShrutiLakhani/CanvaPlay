@@ -9,6 +9,7 @@ import { Playlist } from "../Pages/pages";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { videoReducer } from "../reducer/reducer-function";
+import Toast from "../Components/Toast";
 
 const VideoContext = createContext();
 
@@ -61,7 +62,10 @@ const VideoProvider = ({ children }) => {
       }
     } catch (error) {
       console.log("error", error);
-      // navigate("/login");
+      Toast({
+        type: "error",
+        message: "Oops!Something went wrong. Please try again",
+      });
     }
   };
 
@@ -79,8 +83,13 @@ const VideoProvider = ({ children }) => {
       if (status === 200) {
         setHistoryVideo(data.history);
       }
+      Toast({ type: "success", message: "Removed from History" });
     } catch (error) {
       console.log("error", error);
+      Toast({
+        type: "error",
+        message: "Oops!Something went wrong. Please try again",
+      });
     }
   };
 
@@ -94,6 +103,7 @@ const VideoProvider = ({ children }) => {
       });
       if (status === 200) {
         setHistoryVideo([]);
+        Toast({ type: "success", message: "Cleared History" });
       }
     } catch (error) {
       console.log("error", error);
@@ -110,6 +120,10 @@ const VideoProvider = ({ children }) => {
         });
       }
     } catch (error) {
+      Toast({
+        type: "error",
+        message: "Oops! An error occurred.Try again later.",
+      });
       console.log("error", error);
     }
   };
