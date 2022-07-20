@@ -43,7 +43,7 @@
 }
 .dropdown-menu {
   position: absolute;
-  left: 0;
+  left: 10%;
   top: 40%;
   background-color: var(--tertiary-color);
   padding: 1rem;

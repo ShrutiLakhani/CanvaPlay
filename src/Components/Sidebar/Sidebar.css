@@ -1,17 +1,28 @@
 .sidebar-left {
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 2rem;
   margin: 2rem 2rem 0 2rem;
   flex: 0.2;
 }
 .sidebar-links {
   display: flex;
   align-items: center;
+  padding: 8px 10px;
 }
 .sidebar-links-name {
   margin-left: 0.8rem;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 1rem;
   white-space: nowrap;
+  color: var(--component-black-color);
+}
+.sidebar-icon {
+  color: #606060;
+  font-size: 700;
+}
+.sidebar-links:hover {
+  background-color: var(--component-container-color);
+  cursor: pointer;
+  border-radius: 5px;
 }

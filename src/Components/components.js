@@ -7,6 +7,7 @@ import LikedVideoCard from "./LikedVideoCard/LikedVideoCard";
 import CategoryList from "./CategoryList/CategoryList";
 import PlayListCard from "./PlayListCard/PlayListCard";
 import PlayListModal from "./PlayListModal/PlayListModal";
+import RequiresAuth from "./RequiresAuth";
 
 export {
   Navbar,
@@ -18,4 +19,5 @@ export {
   CategoryList,
   PlayListCard,
   PlayListModal,
+  RequiresAuth,
 };

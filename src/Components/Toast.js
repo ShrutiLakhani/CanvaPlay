@@ -2,7 +2,6 @@ import { toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function ({ message, type }) {
-  console.log("Comes Here");
   return toast(message, {
     position: toast.POSITION.TOP_CENTER,
     autoClose: 1000,

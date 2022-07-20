@@ -24,9 +24,9 @@
 }
 .filtered-videos {
   display: flex;
-  gap: 2rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  margin-top: 0rem;
+  margin-top: 1rem;
 }
 .category-container {
   margin-bottom: 0rem;
